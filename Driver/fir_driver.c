@@ -112,8 +112,10 @@ static ssize_t fir_read(struct file *f, char __user *buf, size_t len, loff_t *of
 
     if (fir_curr_addr == DRVMEMSIZE && val == 1) {
         fir_curr_addr = 0;
-    }
-
+    } else {
+		fir_curr_addr++;
+	}
+	
     return strlen(output);
 }
 
